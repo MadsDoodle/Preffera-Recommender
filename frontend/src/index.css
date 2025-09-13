@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Preferee Design System - Cream & Electric Green Theme */
+
+@layer base {
+  :root {
+    /* Cream base colors */
+    --background: 47 100% 97%;
+    --foreground: 25 20% 15%;
+
+    --card: 50 100% 98%;
+    --card-foreground: 25 20% 15%;
+
+    --popover: 50 100% 98%;
+    --popover-foreground: 25 20% 15%;
+
+    /* Electric green primary */
+    --primary: 120 100% 35%;
+    --primary-foreground: 50 100% 98%;
+    --primary-glow: 120 100% 45%;
+
+    /* Cream secondary */
+    --secondary: 45 50% 92%;
+    --secondary-foreground: 25 20% 15%;
+
+    --muted: 45 40% 90%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Electric green accent */
+    --accent: 120 85% 40%;
+    --accent-foreground: 50 100% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 50 100% 98%;
+
+    --border: 45 30% 85%;
+    --input: 45 30% 88%;
+    --ring: 120 100% 35%;
+
+    /* Custom design tokens */
+    --cream-light: 50 100% 99%;
+    --cream-base: 47 100% 97%;
+    --cream-dark: 45 50% 92%;
+    
+    --green-electric: 120 100% 20%;
+    --green-glow: 120 100% 25%;
+    --green-soft: 120 50% 85%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--cream-light)), hsl(var(--cream-base)), hsl(45 40% 94%));
+    --gradient-electric: linear-gradient(135deg, hsl(var(--green-electric)), hsl(var(--green-glow)));
+    --gradient-overlay: linear-gradient(135deg, hsl(var(--green-electric) / 0.15), hsl(var(--green-glow) / 0.08));
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 20px hsl(var(--green-electric) / 0.1);
+    --shadow-glow: 0 0 30px hsl(var(--green-glow) / 0.3);
+    --shadow-card: 0 4px 20px hsl(25 20% 15% / 0.08);
+    
+    /* Animation vars */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Background animations */
+  .floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--gradient-overlay);
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .floating-shape:nth-child(1) { 
+    width: 80px; height: 80px; 
+    top: 15%; left: 8%; 
+    animation-delay: 0s; 
+  }
+  
+  .floating-shape:nth-child(2) { 
+    width: 60px; height: 60px; 
+    top: 65%; right: 12%; 
+    animation-delay: 2s; 
+  }
+  
+  .floating-shape:nth-child(3) { 
+    width: 100px; height: 100px; 
+    bottom: 25%; left: 15%; 
+    animation-delay: 4s; 
+  }
+  
+  .floating-shape:nth-child(4) { 
+    width: 45px; height: 45px; 
+    top: 35%; right: 25%; 
+    animation-delay: 1s; 
+  }
+  
+  .floating-shape:nth-child(5) { 
+    width: 70px; height: 70px; 
+    bottom: 45%; right: 8%; 
+    animation-delay: 3s; 
+  }
+  
+  .floating-shape:nth-child(6) { 
+    width: 35px; height: 35px; 
+    top: 80%; left: 30%; 
+    animation-delay: 5s; 
+  }
+
+  /* Glow effects */
+  .glow-electric {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+  
+  /* Gradient overlays */
+  .gradient-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-overlay);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+}
+
+/* Keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px hsl(var(--green-electric) / 0.3); }
+  50% { box-shadow: 0 0 40px hsl(var(--green-glow) / 0.6); }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

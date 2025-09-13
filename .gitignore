@@ -1,0 +1,8 @@
+# dependencies
+node_modules/
+jspm_packages/
+
+.venv/
+env/
+.env/
+__pycache__/

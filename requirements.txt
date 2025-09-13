@@ -1,0 +1,27 @@
+# --- Core Data Science & ML ---
+numpy>=1.24,<2.0
+scipy>=1.10,<2.0
+pandas>=2.0,<3.0
+scikit-learn>=1.3,<2.0
+git+https://github.com/lyst/lightfm.git  # LightFM from GitHub
+joblib>=1.3,<2.0
+
+# --- API & Backend ---
+fastapi>=0.110,<1.0
+uvicorn[standard]>=0.27,<1.0
+python-dotenv>=1.0,<2.0
+loguru>=0.7,<1.0
+
+# --- Database ---
+sqlalchemy>=2.0,<3.0
+psycopg2-binary>=2.9,<3.0   # PostgreSQL adapter
+redis>=5.0,<6.0
+
+# --- Optional: Deep Learning (future extensions) ---
+torch>=2.1,<3.0          # for PyTorch models (LSTM, Transformers)
+tensorflow>=2.14,<3.0    # if you want TensorFlow/Keras-based models
+
+# --- Optional: Experiment Tracking / Deployment ---
+mlflow>=2.10,<3.0
+
+seaborn
