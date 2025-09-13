@@ -44,21 +44,25 @@ Current domain: Movies (MovieLens 100k). Designed to extend to Books and Learnin
 
 ```mermaid
 flowchart TD
-  A[User] --> B[Frontend (React/TS)]
-  B --> C[API (FastAPI)]
+  A[User] --> B["Frontend (React/TS)"]
+  B --> C["API (FastAPI)"]
   C -->|User→Movie| D1[UserCF]
   C -->|User→Movie (few ratings)| D2[ItemCF]
-  C -->|Cold‑start| D3[LightFM]
+  C -->|Cold-start| D3[LightFM]
+
   subgraph Data
     E1[(data/ml-100k)]
     E2[(data/processed)]
   end
+
   D1 <-- read --> E2
   D2 <-- read --> E2
   D3 <-- read --> E2
-  F[Notebooks 01–09] --> E2
-  F <-- read -- E1
+  F["Notebooks 01–09"] --> E2
+  F <-- read --> E1
+
   C --> B --> A
+
 ```
 
 Decision logic (`app/recommender.py`):
