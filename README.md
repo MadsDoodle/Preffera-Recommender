@@ -44,11 +44,12 @@ Current domain: Movies (MovieLens 100k). Designed to extend to Books and Learnin
 
 ```mermaid
 flowchart TD
-  A[User] --> B["Frontend (React/TS)"]
-  B --> C["API (FastAPI)"]
-  C -->|User→Movie| D1[UserCF]
-  C -->|User→Movie (few ratings)| D2[ItemCF]
-  C -->|Cold-start| D3[LightFM]
+  A[User] --> B["Frontend React_TS"]
+  B --> C["API FastAPI"]
+
+  C -->|User_to_Movie| D1[UserCF]
+  C -->|User_to_Movie_few| D2[ItemCF]
+  C -->|Coldstart| D3[LightFM]
 
   subgraph Data
     E1[(data/ml-100k)]
@@ -58,10 +59,11 @@ flowchart TD
   D1 <-- read --> E2
   D2 <-- read --> E2
   D3 <-- read --> E2
-  F["Notebooks 01–09"] --> E2
+  F["Notebooks 01-09"] --> E2
   F <-- read --> E1
 
   C --> B --> A
+
 
 ```
 
